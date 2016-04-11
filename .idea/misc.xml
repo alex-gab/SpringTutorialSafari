@@ -6,6 +6,7 @@
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
+        <option value="$PROJECT_DIR$/SpringTutorialSafari/SpringBaseball/pom.xml" />
         <option value="$PROJECT_DIR$/SpringTutorialSafari/pom.xml" />
       </list>
     </option>
