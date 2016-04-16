@@ -14,13 +14,13 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Repository
-@Profile("test")
+@Profile({"test", "prod"})
 public final class JdbcAccountRepository implements AccountRepository {
     private final JdbcTemplate template;
     private long nextId = 4;
 
     @Autowired
-    public JdbcAccountRepository(DataSource dataSource) {
+    public JdbcAccountRepository(final DataSource dataSource) {
         template = new JdbcTemplate(dataSource);
     }
 
