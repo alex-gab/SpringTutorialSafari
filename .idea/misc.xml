@@ -8,6 +8,8 @@
       <list>
         <option value="$PROJECT_DIR$/SpringTutorialSafari/SpringBaseball/pom.xml" />
         <option value="$PROJECT_DIR$/SpringTutorialSafari/pom.xml" />
+        <option value="$PROJECT_DIR$/JdbcAccounts/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringTutorialSafari/JdbcAccounts/pom.xml" />
       </list>
     </option>
   </component>
