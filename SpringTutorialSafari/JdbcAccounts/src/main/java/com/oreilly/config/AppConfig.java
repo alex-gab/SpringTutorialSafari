@@ -50,4 +50,10 @@ public class AppConfig {
         dataSource.setPassword(env.getProperty("db.pass"));
         return dataSource;
     }
+
+    @Bean(name = "transactionManager")
+    @Profile("prod")
+    public PlatformTransactionManager transactionManagerForProd() {
+        return new DataSourceTransactionManager(dataSourceForProd());
+    }
 }

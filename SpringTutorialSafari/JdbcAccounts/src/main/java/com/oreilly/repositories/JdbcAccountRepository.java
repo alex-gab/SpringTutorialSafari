@@ -2,7 +2,6 @@ package com.oreilly.repositories;
 
 import com.oreilly.entities.Account;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -14,7 +13,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Repository
-@Profile({"test", "prod"})
 public final class JdbcAccountRepository implements AccountRepository {
     private final JdbcTemplate template;
     private long nextId = 4;
@@ -31,7 +29,7 @@ public final class JdbcAccountRepository implements AccountRepository {
     }
 
     @Override
-    public final Account getAccount(final Long id) {
+    public final Account getAccount(final long id) {
         final String statement = "select * from account where id=?";
         return template.queryForObject(statement, new AccountMapper(), id);
     }
@@ -43,7 +41,7 @@ public final class JdbcAccountRepository implements AccountRepository {
     }
 
     @Override
-    public final Long createAccount(final BigDecimal initialBalance) {
+    public final long createAccount(final BigDecimal initialBalance) {
         final String statement = "insert into account(id,balance) values(?,?)";
         final long id = nextId++;
         template.update(statement, id, initialBalance);
@@ -57,7 +55,7 @@ public final class JdbcAccountRepository implements AccountRepository {
     }
 
     @Override
-    public final int deleteAccount(final Long id) {
+    public final int deleteAccount(final long id) {
         final String statement = "delete from account where id=?";
         return template.update(statement, id);
     }

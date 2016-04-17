@@ -1,7 +1,7 @@
 package com.oreilly;
 
 import com.oreilly.config.AppConfig;
-import com.oreilly.repositories.AccountRepository;
+import com.oreilly.services.AccountService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.math.BigDecimal;
@@ -14,9 +14,8 @@ public final class RunDemo {
         context.refresh();
         System.out.println(context.getBeanDefinitionCount());
 
-        final AccountRepository repository = context.getBean("jdbcAccountRepository", AccountRepository.class);
-        repository.createAccount(new BigDecimal("1500.00"));
-//        repository.deleteAccount(4L);
+        final AccountService service = context.getBean("accountService", AccountService.class);
+        service.transfer(1, 3, new BigDecimal("100.00"));
 
         for (String name : context.getBeanDefinitionNames()) {
             System.out.println(name);
