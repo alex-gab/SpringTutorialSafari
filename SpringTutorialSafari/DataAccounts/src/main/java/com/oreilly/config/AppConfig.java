@@ -6,6 +6,7 @@ import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -22,9 +23,11 @@ import java.util.Properties;
 
 @Configuration
 @ComponentScan(basePackages = "com.oreilly")
+@EnableJpaRepositories(basePackages = "com.oreilly.repositories")
 @PropertySource("classpath:prod.properties")
 @EnableTransactionManagement
 public class AppConfig {
+
     @Autowired
     private Environment env;
 
@@ -78,8 +81,8 @@ public class AppConfig {
 
     @Bean
     @SuppressWarnings("Duplicates")
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory(DataSource dataSource,
-                                                                       JpaVendorAdapter jpaVendorAdapter) {
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory(final DataSource dataSource,
+                                                                       final JpaVendorAdapter jpaVendorAdapter) {
         final Properties props = new Properties();
         props.setProperty("hibernate.format_sql", String.valueOf(true));
 
