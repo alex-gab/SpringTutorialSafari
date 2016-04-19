@@ -31,7 +31,7 @@ public class AppConfig {
     @Bean(name = "dataSource")
     @Profile("prod")
     @SuppressWarnings("Duplicates")
-    public DataSource dataSource() {
+    public DataSource dataSourceForProd() {
         final BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName(env.getProperty("db.driver"));
         dataSource.setUrl(env.getProperty("db.url"));
@@ -53,12 +53,24 @@ public class AppConfig {
                 build();
     }
 
-    @Bean
-    public JpaVendorAdapter jpaVendorAdapter() {
+    @Bean(name = "jpaVendorAdapter")
+    @Profile("prod")
+    public JpaVendorAdapter jpaVendorAdapterForProd() {
         final HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
         adapter.setShowSql(true);
         adapter.setGenerateDdl(true);
         adapter.setDatabase(Database.MYSQL);
+        return adapter;
+    }
+
+    @Bean(name = "jpaVendorAdapter")
+    @Profile("test")
+    public JpaVendorAdapter jpaVendorAdapterForTest() {
+        final HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();
+        adapter.setShowSql(true);
+        adapter.setGenerateDdl(true);
+        adapter.setDatabase(Database.H2);
+        adapter.setDatabasePlatform("org.hibernate.dialect.H2Dialect");
         return adapter;
     }
 
