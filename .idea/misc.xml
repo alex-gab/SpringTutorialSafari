@@ -10,6 +10,7 @@
         <option value="$PROJECT_DIR$/SpringTutorialSafari/pom.xml" />
         <option value="$PROJECT_DIR$/JdbcAccounts/pom.xml" />
         <option value="$PROJECT_DIR$/SpringTutorialSafari/JdbcAccounts/pom.xml" />
+        <option value="$PROJECT_DIR$/SpringTutorialSafari/JpaAccounts/pom.xml" />
       </list>
     </option>
   </component>

@@ -42,6 +42,7 @@ public class AppConfig {
 
     @Bean(name = "dataSource")
     @Profile("prod")
+    @SuppressWarnings("Duplicates")
     public DataSource dataSourceForProd() {
         BasicDataSource dataSource = new BasicDataSource();
         dataSource.setDriverClassName(env.getProperty("db.driver"));

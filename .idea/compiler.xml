@@ -30,9 +30,17 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
       </profile>
+      <profile default="false" name="Annotation profile for JpaAccounts" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="JpaAccounts" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="JdbcAccounts" target="1.8" />
+      <module name="JpaAccounts" target="1.8" />
       <module name="SpringBaseball" target="1.8" />
       <module name="SpringTutorialSafari" target="1.8" />
     </bytecodeTargetLevel>
