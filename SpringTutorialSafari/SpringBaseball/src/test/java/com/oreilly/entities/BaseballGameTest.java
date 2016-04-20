@@ -1,6 +1,6 @@
 package com.oreilly.entities;
 
-import com.oreilly.AppConfig;
+import com.oreilly.config.AppConfig;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

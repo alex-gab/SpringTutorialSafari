@@ -1,38 +1,62 @@
 package com.oreilly.entities;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.sql.DataSource;
 
-public final class BaseballGame implements Game {
+public class BaseballGame implements Game {
     private Team homeTeam;
     private Team awayTeam;
     private DataSource dataSource;
 
-    public BaseballGame(final Team homeTeam, final Team awayTeam) {
+    public BaseballGame() {
+    }
+
+    public BaseballGame(Team homeTeam, Team awayTeam) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
     }
 
-    public final void setDataSource(final DataSource dataSource) {
+    @PostConstruct
+    public void startGame() {
+        System.out.println("Playing National Athem");
+    }
+
+    @PreDestroy
+    public void endGame() {
+        System.out.println("Sending highlights to MLB");
+    }
+
+    public void setDataSource(DataSource dataSource) {
         this.dataSource = dataSource;
     }
 
-    public final void setHomeTeam(final Team team) {
-        this.homeTeam = team;
+    public void setHomeTeam(Team homeTeam) {
+        this.homeTeam = homeTeam;
     }
 
-    public final Team getHomeTeam() {
+    @Override
+    public Team getHomeTeam() {
         return homeTeam;
     }
 
-    public final void setAwayTeam(final Team team) {
-        this.awayTeam = team;
+    public void setAwayTeam(Team awayTeam) {
+        this.awayTeam = awayTeam;
     }
 
-    public final Team getAwayTeam() {
+    @Override
+    public Team getAwayTeam() {
         return awayTeam;
     }
 
-    public final String playGame() {
-        return Math.random() < 0.5 ? getHomeTeam().getName() : getAwayTeam().getName();
+    @Override
+    public String playGame() {
+        return Math.random() < 0.5 ? getHomeTeam().getName() :
+                getAwayTeam().getName();
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Game between %s at %s", awayTeam.getName(), homeTeam.getName());
     }
 }

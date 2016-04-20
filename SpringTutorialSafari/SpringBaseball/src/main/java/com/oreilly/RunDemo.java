@@ -1,20 +1,27 @@
 package com.oreilly;
 
+import com.oreilly.config.AppConfig;
 import com.oreilly.entities.Game;
-import org.springframework.context.ApplicationContext;
+import com.oreilly.entities.Team;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import static java.lang.String.format;
 
 public final class RunDemo {
     public static void main(String[] args) {
-        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-        final Game game = context.getBean("game", Game.class);
-        System.out.println(game.playGame());
+        final AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        System.out.println(format("There are %d beans.", context.getBeanDefinitionCount()));
-        for (final String name : context.getBeanDefinitionNames()) {
-            System.out.println(name);
-        }
+        final Game game = context.getBean("game", Game.class);
+        final Team royals = context.getBean("royals", Team.class);
+        final Team redSox = context.getBean("redSox", Team.class);
+        final Team cubs = context.getBean("cubs", Team.class);
+
+        game.setHomeTeam(royals);
+        game.setAwayTeam(cubs);
+        game.playGame();
+
+        game.setHomeTeam(cubs);
+        game.setAwayTeam(redSox);
+        game.playGame();
+
+        context.close();
     }
 }

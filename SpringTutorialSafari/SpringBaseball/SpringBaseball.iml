@@ -4,8 +4,8 @@
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/java/com/oreilly/AppConfig.java</file>
-          <file>file://$MODULE_DIR$/src/main/java/com/oreilly/InfrastructureConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/oreilly/config/AppConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/oreilly/config/InfrastructureConfig.java</file>
         </fileset>
       </configuration>
     </facet>
@@ -20,12 +20,13 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-context:4.2.5.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.2.5.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.2.5.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-core:4.2.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.2.4.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-beans:4.2.4.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-core:4.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: commons-logging:commons-logging:1.2" level="project" />
+    <orderEntry type="library" name="Maven: aopalliance:aopalliance:1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.8.9" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context:4.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:4.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:4.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-tx:4.2.5.RELEASE" level="project" />
