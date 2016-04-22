@@ -56,6 +56,13 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                    <fork>true</fork>
+                    <meminitial>128m</meminitial>
+                    <compilerArgs>
+                        <arg>-Xlint:all</arg>
+                        <arg>-Werror</arg>
+                    </compilerArgs>
+                    <verbose>true</verbose>
                 </configuration>
             </plugin>
         </plugins>
