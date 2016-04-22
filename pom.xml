@@ -62,7 +62,6 @@
                         <arg>-Xlint:all</arg>
                         <arg>-Werror</arg>
                     </compilerArgs>
-                    <verbose>true</verbose>
                 </configuration>
             </plugin>
         </plugins>
